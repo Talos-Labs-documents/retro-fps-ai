@@ -23,7 +23,7 @@ Instead of scripted enemies, the AI learns movement and combat behaviors using P
 
 Clone the repo:
 
-git clone https://github.com/YOURNAME/doom-ai-bot
+git clone https://github.com/Talos-Labs-documents/retro-fps-ai
 
 Install dependencies:
 
