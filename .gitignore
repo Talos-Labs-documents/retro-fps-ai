@@ -1,0 +1,6 @@
+venv/
+logs/
+checkpoints/
+*.zip
+__pycache__/
+*.pyc
