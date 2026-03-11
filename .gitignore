@@ -30,3 +30,14 @@ Thumbs.db
 # Environment files
 .envrc
 .env
+
+# Training outputs
+checkpoints/
+old_checkpoints/
+training_log.txt
+
+# Backup files
+*.bak
+*.save
+*_backup
+*.singleframe_backup
