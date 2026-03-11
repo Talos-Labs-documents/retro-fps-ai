@@ -7,14 +7,13 @@ from datetime import datetime
 from stable_baselines3 import PPO
 from stable_baselines3.common.callbacks import CheckpointCallback, BaseCallback
 from stable_baselines3.common.vec_env import SubprocVecEnv
-from stable_baselines3.common.logger import TensorBoardOutputFormat
 
-from environment.doom_env import DoomEnv
+# Adjust this import if your env file/module name differs
+from doom_env import DoomEnv
 
 
 MODEL_DIR = "models"
 LOG_DIR = "logs"
-CHECKPOINT_DIR = "checkpoints"
 
 os.makedirs(MODEL_DIR, exist_ok=True)
 os.makedirs(LOG_DIR, exist_ok=True)
@@ -108,41 +107,6 @@ class TrainingStatusCallback(BaseCallback):
         return f"{hours:02d}:{minutes:02d}:{secs:02d}"
 
 
-class DoomTensorboardCallback(BaseCallback):
-    def __init__(self, verbose: int = 0):
-        super().__init__(verbose)
-        self.tb_formatter = None
-
-    def _on_training_start(self) -> None:
-        for fmt in self.logger.output_formats:
-            if isinstance(fmt, TensorBoardOutputFormat):
-                self.tb_formatter = fmt
-                break
-
-    def _on_step(self) -> bool:
-        infos = self.locals.get("infos", [])
-        if not infos or self.tb_formatter is None:
-            return True
-
-        writer = self.tb_formatter.writer
-        step = self.num_timesteps
-
-        for info in infos:
-            episode_metrics = info.get("episode_metrics")
-            if not episode_metrics:
-                continue
-
-            writer.add_scalar("doom/episode_reward", episode_metrics.get("reward", 0.0), step)
-            writer.add_scalar("doom/episode_length", episode_metrics.get("length", 0), step)
-            writer.add_scalar("doom/kills", episode_metrics.get("kills", 0), step)
-            writer.add_scalar("doom/damage_taken", episode_metrics.get("damage_taken", 0.0), step)
-            writer.add_scalar("doom/damage_dealt", episode_metrics.get("damage_dealt", 0.0), step)
-            writer.add_scalar("doom/survival_time", episode_metrics.get("survival_time", 0), step)
-            writer.add_scalar("doom/kill_death_ratio", episode_metrics.get("kill_death_ratio", 0.0), step)
-
-        return True
-
-
 def parse_args():
     parser = argparse.ArgumentParser(description="Train PPO agent for Doom AI bot")
     parser.add_argument("--iterations", type=int, default=1_000_000, help="Total training timesteps")
@@ -151,8 +115,8 @@ def parse_args():
     parser.add_argument("--log-freq", type=int, default=10_000, help="Progress print frequency in steps")
     parser.add_argument("--learning-rate", type=float, default=2.5e-4, help="PPO learning rate")
     parser.add_argument("--batch-size", type=int, default=256, help="PPO batch size")
-    parser.add_argument("--n-steps", type=int, default=1024, help="Steps per environment per update")
-    parser.add_argument("--device", type=str, default="cuda", help="Training device: cuda or cpu")
+    parser.add_argument("--n-steps", type=int, default=1024, help="Steps to run per environment per update")
+    parser.add_argument("--device", type=str, default="cuda", help="cuda or cpu")
     return parser.parse_args()
 
 
@@ -175,8 +139,6 @@ if __name__ == "__main__":
         print_freq=args.log_freq,
         total_timesteps=args.iterations
     )
-
-    doom_tb_callback = DoomTensorboardCallback()
 
     starting_model = find_starting_model()
 
@@ -204,7 +166,7 @@ if __name__ == "__main__":
     try:
         model.learn(
             total_timesteps=args.iterations,
-            callback=[checkpoint_callback, status_callback, doom_tb_callback],
+            callback=[checkpoint_callback, status_callback],
             reset_num_timesteps=False,
             tb_log_name="doom_ppo_run"
         )

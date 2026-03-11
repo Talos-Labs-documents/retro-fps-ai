@@ -1,3 +1,4 @@
+HEAD
 # Retro FPS AI
 ### Reinforcement Learning for Classic Shooter Enemy Behavior
 
@@ -144,17 +145,124 @@ cd retro-fps-ai
 Install dependencies:
 
 
+=======
+# Doom AI Bot
+### Reinforcement Learning NPC Training for Classic FPS Engines
+
+This project explores using **reinforcement learning (RL)** to train enemy behavior in the classic game **DOOM**. Instead of relying on the original hard-coded enemy logic written in the early 1990s, this project trains an AI agent to learn gameplay behaviors directly from interaction with the environment.
+
+The goal is to create a **modern AI layer for classic games**, allowing them to evolve beyond their original scripted behavior.
+
+---
+
+# Project Vision
+
+Classic games like **Doom, Quake, Thief, and Half-Life** were built with static enemy logic due to the hardware limitations of their time.
+
+Modern hardware and machine learning now allow us to experiment with:
+
+- Reinforcement learning based enemy decision making
+- Dynamic combat behavior
+- Self-improving NPC tactics
+- Community trained AI models
+- Long-running background training
+
+This project acts as a **proof of concept** showing how classic engines can be upgraded with modern AI techniques.
+
+---
+
+# Current Features
+
+- Reinforcement Learning training loop
+- Custom Doom environment wrapper
+- PPO (Proximal Policy Optimization) training
+- GPU acceleration using CUDA when available
+- Training logs and metrics
+- Reproducible environment setup
+
+The system continuously trains an AI agent by running simulated gameplay episodes and learning from reward signals.
+
+---
+
+# Why Doom?
+
+Doom is an ideal AI experimentation platform because:
+
+- The engine is lightweight
+- Environments are deterministic
+- The game loop is extremely fast
+- Many open-source tools exist
+- Reinforcement learning experiments run quickly
+
+This makes Doom a perfect **sandbox for AI gameplay research**.
+
+---
+
+# Hardware Used
+
+Current development system:
+GPU: RTX 2070 Super
+CPU: Ryzen 5
+RAM: 16GB
+OS: Linux Mint / Ubuntu
+
+---
+
+
+The project will still run on:
+
+- CPU only systems
+- older GPUs
+- cloud instances
+
+Training speed simply scales with hardware.
+
+---
+
+# Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/YOUR_USERNAME/doom-ai-bot.git
+cd doom-ai-bot
+
+Create a virtual environment:
+python3 -m venv venv
+source venv/bin/activate
+
+Install dependencies:
+>>>>>>> 0694302 (Update training environment, add monitoring tools and scripts)
 pip install -r requirements.txt
 
 
 ---
 
+<<<<<<< HEAD
 # Train the AI
 
 Start reinforcement learning training:
 
+=======
+Running Training
+>>>>>>> 0694302 (Update training environment, add monitoring tools and scripts)
 
-python train.py
+Start reinforcement learning training:
+python3 train.py
+
+The agent will begin interacting with the Doom environment and learning from experience.
+
+Training can run for:
+
+hours
+
+days
+
+weeks
+
+millions or billions of frames
+
+Longer training produces more intelligent behavior.
 
 
 This will train the AI using the PPO algorithm and periodically save checkpoints.
@@ -163,12 +271,36 @@ TensorBoard logs will also be generated for training analysis.
 
 ---
 
+<<<<<<< HEAD
 # Watch the AI Play
 
 After training, run:
 
+=======
+Training Philosophy
+>>>>>>> 0694302 (Update training environment, add monitoring tools and scripts)
 
-python watch_ai.py
+Unlike traditional scripted AI, reinforcement learning agents:
+
+explore
+
+fail
+
+adapt
+
+optimize behavior over time
+
+This allows the AI to develop strategies that were never explicitly programmed.
+
+Over long training runs the agent begins to learn:
+
+movement optimization
+
+threat avoidance
+
+combat positioning
+
+resource efficiency
 
 
 This loads the trained model and runs the AI inside the Doom environment.
@@ -182,6 +314,7 @@ You should see the bot:
 
 ---
 
+<<<<<<< HEAD
 # Example Training Metrics
 
 Typical training runs produce:
@@ -248,3 +381,133 @@ A license will be added in a future update.
 # Project Author
 
 Brandon Lemon
+
+---
+
+Monitoring Training
+
+Training logs are written to:
+logs/
+These logs track:
+
+reward scores
+
+learning progression
+
+episode length
+
+performance metrics
+
+Future versions will include a real-time dashboard for monitoring learning progress.
+
+---
+
+Future Roadmap
+
+This project is only the beginning.
+
+Planned expansions include:
+
+Advanced Enemy AI
+
+tactical movement
+
+group coordination
+
+ambush behavior
+
+environment awareness
+
+Visual Monitoring
+
+training dashboards
+
+gameplay playback
+
+learning graphs
+
+Cross Game Support
+
+Potential engines to experiment with:
+
+Quake
+
+Quake II
+
+Half-Life
+
+Thief
+
+Hexen
+
+Heretic
+
+Community Training
+
+The long-term vision is to allow users to contribute training from their own machines.
+
+Examples:
+
+RTX gaming PCs
+
+Raspberry Pi clusters
+
+AI hardware
+
+cloud GPUs
+
+Training data could eventually be shared and merged into improved AI models.
+
+---
+
+Why This Matters
+
+For decades people have asked:
+
+"Can it run Doom?"
+
+Now we ask a different question:
+
+Can Doom learn?
+
+This project explores what happens when classic game engines meet modern AI.
+
+---
+
+Contributing
+
+Contributions are welcome.
+
+Potential areas of improvement include:
+
+environment wrappers
+
+training stability
+
+reward engineering
+
+monitoring tools
+
+performance optimization
+
+Fork the repo and experiment.
+
+---
+
+License
+
+MIT License
+
+This project is open source and free to use, modify, and expand.
+
+---
+
+Author
+
+Brandon Lemon
+
+Exploring the intersection of classic games and modern artificial intelligence.
+
+---
+
+0694302 (Update training environment, add monitoring tools and scripts)

@@ -1,6 +1,32 @@
-venv/
-logs/
-checkpoints/
-*.zip
+# Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.env/
+.venv/
+
+# Training logs and outputs
+logs/
+*.log
+nohup.out
+
+# Model/checkpoint files
+*.zip
+*.pth
+*.pt
+*.ckpt
+*.onnx
+
+# System/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Environment files
+.envrc
+.env
