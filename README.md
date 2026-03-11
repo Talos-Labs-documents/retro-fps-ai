@@ -1,116 +1,63 @@
-HEAD
 # Retro FPS AI
-### Reinforcement Learning for Classic Shooter Enemy Behavior
+### Reinforcement Learning Enemy AI for Classic FPS Games
 
-This project explores how **modern reinforcement learning techniques can evolve enemy behavior inside classic FPS games**.
+For decades the question was:
 
-Instead of relying on the traditional scripted AI found in older shooters, this system trains an agent to **learn combat behavior through experience**.
+> **"Can it run Doom?"**
 
-Using **VizDoom and PPO (Proximal Policy Optimization)**, the agent learns how to move, orient itself, and fire in response to enemies within the game environment.
+This project asks a different question:
 
-The long-term goal of this project is to demonstrate how **classic FPS games can be upgraded with modern AI systems**, transforming static enemies into **adaptive combat agents**.
+> **"Can Doom learn?"**
 
----
+Retro FPS AI explores using **reinforcement learning (RL)** to train enemy behavior in classic first-person shooter engines. Instead of static scripted logic written decades ago, enemies learn strategies through repeated gameplay.
 
-# Why This Project Exists
-
-Many classic FPS games have incredible gameplay mechanics but rely on **very simple scripted AI**.
-
-Enemies often behave as:
-
-- bullet sponges
-- predictable movement patterns
-- scripted attack loops
-- limited tactical awareness
-
-Reinforcement learning allows enemies to **develop behavior instead of executing scripts**.
-
-This project explores the idea that we can:
-
-**retrofit classic shooters with modern AI behavior systems.**
-
-If successful, this approach could allow older games to gain:
-
-- adaptive enemy movement
-- better target tracking
-- dynamic combat responses
-- evolving difficulty curves
+The project begins with **DOOM** as a sandbox environment for experimenting with modern AI techniques inside a classic game engine.
 
 ---
 
-# Features
+# Project Goals
 
-• Reinforcement Learning using **Stable-Baselines3 PPO**  
-• Doom simulation through **VizDoom**  
-• Frame-based perception pipeline  
-• Parallel training environments  
-• TensorBoard monitoring  
-• Model checkpoint saving  
-• Trained combat agent demonstration  
+Classic FPS games relied on **hardcoded AI behavior** due to hardware limitations of the time. Today we can experiment with:
 
----
+- Reinforcement learning driven enemy behavior
+- Dynamic combat strategies
+- Self-improving NPC logic
+- Training AI agents through simulated gameplay
+- Community-driven model improvements
 
-# Project Structure
-Great — this is the moment where we turn your repo from “code dump” into a project people understand immediately.
-
-Right now your README works, but we can make it much stronger and more compelling by explaining the why, not just the how.
-
-Below is a full upgraded README you can paste directly into your repo.
-
-Replace your README.md with this
-# Retro FPS AI
-### Reinforcement Learning for Classic Shooter Enemy Behavior
-
-This project explores how **modern reinforcement learning techniques can evolve enemy behavior inside classic FPS games**.
-
-Instead of relying on the traditional scripted AI found in older shooters, this system trains an agent to **learn combat behavior through experience**.
-
-Using **VizDoom and PPO (Proximal Policy Optimization)**, the agent learns how to move, orient itself, and fire in response to enemies within the game environment.
-
-The long-term goal of this project is to demonstrate how **classic FPS games can be upgraded with modern AI systems**, transforming static enemies into **adaptive combat agents**.
+This repository provides a **working framework for training AI agents inside Doom environments.**
 
 ---
 
-# Why This Project Exists
+# Current Features
 
-Many classic FPS games have incredible gameplay mechanics but rely on **very simple scripted AI**.
+- Reinforcement Learning training pipeline
+- Custom Doom environment wrapper
+- PPO-based training
+- GPU acceleration (CUDA supported)
+- Training dashboards and monitoring tools
+- Scripted training and launch tools
+- TensorBoard support for learning visualization
 
-Enemies often behave as:
-
-- bullet sponges
-- predictable movement patterns
-- scripted attack loops
-- limited tactical awareness
-
-Reinforcement learning allows enemies to **develop behavior instead of executing scripts**.
-
-This project explores the idea that we can:
-
-**retrofit classic shooters with modern AI behavior systems.**
-
-If successful, this approach could allow older games to gain:
-
-- adaptive enemy movement
-- better target tracking
-- dynamic combat responses
-- evolving difficulty curves
+The AI continuously interacts with the game environment and adjusts its strategy based on reward signals.
 
 ---
 
-# Features
+# Why Doom?
 
-• Reinforcement Learning using **Stable-Baselines3 PPO**  
-• Doom simulation through **VizDoom**  
-• Frame-based perception pipeline  
-• Parallel training environments  
-• TensorBoard monitoring  
-• Model checkpoint saving  
-• Trained combat agent demonstration  
+Doom is an ideal platform for reinforcement learning experiments:
+
+- Lightweight engine
+- Extremely fast game loop
+- Deterministic environments
+- Mature open-source tooling
+- Easy simulation at large scale
+
+This allows AI agents to train **millions of gameplay iterations quickly.**
 
 ---
 
-# Project Structure
-
+# Repository Structure
 
 retro-fps-ai/
 │
@@ -134,301 +81,121 @@ retro-fps-ai/
 └── .gitignore
 ---
 
-# Installation
-
-Clone the repository:
-git clone https://github.com/Talos-Labs-documents/retro-fps-ai
-
-cd retro-fps-ai
-
-
-Install dependencies:
-
-
-=======
-# Doom AI Bot
-### Reinforcement Learning NPC Training for Classic FPS Engines
-
-This project explores using **reinforcement learning (RL)** to train enemy behavior in the classic game **DOOM**. Instead of relying on the original hard-coded enemy logic written in the early 1990s, this project trains an AI agent to learn gameplay behaviors directly from interaction with the environment.
-
-The goal is to create a **modern AI layer for classic games**, allowing them to evolve beyond their original scripted behavior.
-
----
-
-# Project Vision
-
-Classic games like **Doom, Quake, Thief, and Half-Life** were built with static enemy logic due to the hardware limitations of their time.
-
-Modern hardware and machine learning now allow us to experiment with:
-
-- Reinforcement learning based enemy decision making
-- Dynamic combat behavior
-- Self-improving NPC tactics
-- Community trained AI models
-- Long-running background training
-
-This project acts as a **proof of concept** showing how classic engines can be upgraded with modern AI techniques.
-
----
-
-# Current Features
-
-- Reinforcement Learning training loop
-- Custom Doom environment wrapper
-- PPO (Proximal Policy Optimization) training
-- GPU acceleration using CUDA when available
-- Training logs and metrics
-- Reproducible environment setup
-
-The system continuously trains an AI agent by running simulated gameplay episodes and learning from reward signals.
-
----
-
-# Why Doom?
-
-Doom is an ideal AI experimentation platform because:
-
-- The engine is lightweight
-- Environments are deterministic
-- The game loop is extremely fast
-- Many open-source tools exist
-- Reinforcement learning experiments run quickly
-
-This makes Doom a perfect **sandbox for AI gameplay research**.
-
----
-
-# Hardware Used
-
-Current development system:
-GPU: RTX 2070 Super
-CPU: Ryzen 5
-RAM: 16GB
-OS: Linux Mint / Ubuntu
-
----
-
-
-The project will still run on:
-
-- CPU only systems
-- older GPUs
-- cloud instances
-
-Training speed simply scales with hardware.
-
----
-
-# Installation
+# Quick Start
 
 Clone the repository:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/doom-ai-bot.git
-cd doom-ai-bot
-
+git clone https://github.com/Talos-Labs-documents/retro-fps-ai.git
+cd retro-fps-ai
 Create a virtual environment:
 python3 -m venv venv
 source venv/bin/activate
-
 Install dependencies:
->>>>>>> 0694302 (Update training environment, add monitoring tools and scripts)
 pip install -r requirements.txt
 
+----
 
----
+Start Training
 
-<<<<<<< HEAD
-# Train the AI
-
-Start reinforcement learning training:
-
-=======
-Running Training
->>>>>>> 0694302 (Update training environment, add monitoring tools and scripts)
-
-Start reinforcement learning training:
+Run the reinforcement learning agent:
 python3 train.py
-
-The agent will begin interacting with the Doom environment and learning from experience.
-
-Training can run for:
-
-hours
-
-days
-
-weeks
-
-millions or billions of frames
-
-Longer training produces more intelligent behavior.
-
-
-This will train the AI using the PPO algorithm and periodically save checkpoints.
-
-TensorBoard logs will also be generated for training analysis.
-
----
-
-<<<<<<< HEAD
-# Watch the AI Play
-
-After training, run:
-
-=======
-Training Philosophy
->>>>>>> 0694302 (Update training environment, add monitoring tools and scripts)
-
-Unlike traditional scripted AI, reinforcement learning agents:
-
-explore
-
-fail
-
-adapt
-
-optimize behavior over time
-
-This allows the AI to develop strategies that were never explicitly programmed.
-
-Over long training runs the agent begins to learn:
-
-movement optimization
-
-threat avoidance
-
-combat positioning
-
-resource efficiency
-
-
-This loads the trained model and runs the AI inside the Doom environment.
-
-You should see the bot:
-
-- move
-- orient toward enemies
-- fire weapons
-- engage targets
-
----
-
-<<<<<<< HEAD
-# Example Training Metrics
-
-Typical training runs produce:
-
-- ~600 FPS training speed
-- 1M+ training timesteps
-- stable PPO convergence
-- emergent combat behavior
-
----
-
-# Long-Term Vision
-
-This project is the beginning of a larger concept:
-
-**Upgrading enemy AI in classic FPS games using reinforcement learning.**
-
-Possible future directions include:
-
-• More advanced reward shaping  
-• Multi-enemy combat training  
-• Improved action sets  
-• Curriculum learning across maps  
-• Cooperative AI agents  
-• Cross-game AI experimentation  
-
-The ultimate goal is to explore whether **community-driven AI training could modernize enemy behavior across classic games.**
-
----
-
-# Technologies Used
-
-- Python
-- VizDoom
-- Stable-Baselines3
-- Gymnasium
-- PyTorch
-- OpenCV
-- TensorBoard
-
----
-
-# Contributing
-
-Experimentation and contributions are welcome.
-
-Possible contribution areas:
-
-- reward design
-- new training scenarios
-- improved action sets
-- visualization tools
-- alternative RL algorithms
-
----
-
-# License
-
-This project is open-source.  
-A license will be added in a future update.
-
----
-
-# Project Author
-
-Brandon Lemon
+Or use the helper script:
+chmod +x start_ai_training.sh
+./start_ai_training.sh
+Training will begin immediately and the AI agent will start interacting with the Doom environment.
 
 ---
 
 Monitoring Training
 
-Training logs are written to:
-logs/
-These logs track:
+You can monitor training progress using:
 
-reward scores
+Live Dashboard
+python3 monitor_dashboard.py
+TensorBoard
+./start_tensorboard.sh
+This allows visualization of:
 
-learning progression
+reward progression
 
-episode length
+episode performance
 
-performance metrics
+training stability
 
-Future versions will include a real-time dashboard for monitoring learning progress.
+learning curves
+
+---
+
+Hardware
+
+Current development hardware:
+
+GPU: RTX 2070 Super
+
+CPU: Ryzen 5
+
+RAM: 16GB
+
+OS: Linux Mint / Ubuntu
+
+The system will also run on:
+
+CPU-only machines
+
+cloud GPU instances
+
+smaller local systems
+
+Training speed simply scales with hardware performance.
+
+---
+
+Training Philosophy
+
+Traditional game AI uses scripted decision trees.
+
+Reinforcement learning instead allows agents to:
+
+explore environments
+
+fail repeatedly
+
+discover better strategies
+
+adapt behavior over time
+
+The goal is to create enemy behavior that was never explicitly programmed.
 
 ---
 
 Future Roadmap
 
-This project is only the beginning.
+This project is just the starting point.
 
 Planned expansions include:
 
-Advanced Enemy AI
+Advanced Enemy Behavior
 
 tactical movement
 
-group coordination
+smarter pathfinding
 
-ambush behavior
+threat prioritization
 
-environment awareness
+cover seeking
 
-Visual Monitoring
+Training Visualization
 
-training dashboards
+gameplay recording
 
-gameplay playback
+reward graph dashboards
 
-learning graphs
+automated performance reports
 
-Cross Game Support
+Multi-Game Support
 
-Potential engines to experiment with:
+Future engine targets may include:
 
 Quake
 
@@ -442,35 +209,33 @@ Hexen
 
 Heretic
 
-Community Training
+Distributed Training
 
-The long-term vision is to allow users to contribute training from their own machines.
+Potential support for:
 
-Examples:
+community training runs
 
-RTX gaming PCs
+shared model checkpoints
 
-Raspberry Pi clusters
-
-AI hardware
-
-cloud GPUs
-
-Training data could eventually be shared and merged into improved AI models.
+distributed RL experimentation
 
 ---
 
 Why This Matters
 
-For decades people have asked:
+Classic game engines are incredibly efficient simulation environments.
 
-"Can it run Doom?"
+By combining them with modern AI systems we can explore:
 
-Now we ask a different question:
+emergent gameplay behavior
 
-Can Doom learn?
+adaptive enemy logic
 
-This project explores what happens when classic game engines meet modern AI.
+AI training environments for research
+
+modernizing classic games without rewriting them
+
+Retro FPS AI explores what happens when old engines meet modern machine learning.
 
 ---
 
@@ -478,19 +243,19 @@ Contributing
 
 Contributions are welcome.
 
-Potential areas of improvement include:
+Possible contribution areas include:
 
-environment wrappers
+reward function improvements
 
 training stability
 
-reward engineering
+performance optimization
+
+new environment integrations
 
 monitoring tools
 
-performance optimization
-
-Fork the repo and experiment.
+Fork the repository and experiment.
 
 ---
 
@@ -498,7 +263,7 @@ License
 
 MIT License
 
-This project is open source and free to use, modify, and expand.
+This project is open source and free to use, modify, and distribute.
 
 ---
 
@@ -506,7 +271,7 @@ Author
 
 Brandon Lemon
 
-Exploring the intersection of classic games and modern artificial intelligence.
+Exploring the intersection of classic game engines and modern artificial intelligence.
 
 ---
 
